@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 # Importamos la clase Flask que no va a permitir generar nuevas instancias de 
 # Flask. 
 # flask es la extensión específica.
@@ -21,4 +21,5 @@ app = Flask(__name__)
 # Es decir, cuando el buscador haga una petición a nuestro servidor, va a 
 # llegar a la raíz par aregresar el mensahe de la función hello.
 def hello():
-    return "Hello, World Flask"
+    usr_ip = request.remote_addr
+    return "Hello, World Flask, Your Ip is {}".format(usr_ip)
